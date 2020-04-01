@@ -7,8 +7,12 @@ from project import models
 
 class IndexView(ListView):
     context_object_name = 'data'
-    model = models.UserProfileInfo
+    model = models.DataMahasiswa
     template_name = 'index.html'
+class DataMahasiswalDetailView(DetailView):
+    context_object_name = 'datamahasiswa_detail'
+    model = models.DataMahasiswa
+    template_name = 'detail_mahasiswa.html'
 
 class SchoolListView(ListView):
     context_object_name = 'schools'
