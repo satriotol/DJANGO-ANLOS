@@ -7,7 +7,3 @@ KELAS_CHOICES = (
     (6, ("IK3B")),
 
 )
-RELEVANCE_CHOICES = (
-    (1, ("Unread")),
-    (2, ("Read"))
-)

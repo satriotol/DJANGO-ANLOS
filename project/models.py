@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
-from project.choice import KELAS_CHOICES
 
 
 # Create your models here.
@@ -15,8 +14,24 @@ class UserProfileInfo(models.Model):
         return self.user.username
 
 class DataMahasiswa(models.Model):
+    IK1A = 'IK1A'
+    IK1B = 'IK1B'
+    IK2A = 'IK2A'
+    IK2B = 'IK2B'
+    IK3A = 'IK3A'
+    IK3B = 'IK3B'
+
+    KELAS_CHOICES = [
+    (IK1A,'IK1A'),
+    (IK1B,'IK1B'),
+    (IK2A,'IK2A'),
+    (IK2B,'IK2B'),
+    (IK3A,'IK3A'),
+    (IK3B,'IK3B'),
+    ]
+    
     name = models.CharField(max_length=256)
-    kelas = models.IntegerField(choices=KELAS_CHOICES,default=1)
+    kelas = models.CharField(max_length=4,choices=KELAS_CHOICES,default=IK1A,)
     profile_pic = models.ImageField(upload_to='foto_mahasiswa',blank=True)
 
     def __str__(self):
