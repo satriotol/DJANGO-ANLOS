@@ -17,6 +17,7 @@ class UserProfileInfo(models.Model):
 class DataMahasiswa(models.Model):
     name = models.CharField(max_length=256)
     kelas = models.IntegerField(choices=KELAS_CHOICES,default=1)
+    profile_pic = models.ImageField(upload_to='foto_mahasiswa',blank=True)
 
     def __str__(self):
         return self.name
