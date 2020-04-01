@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
+from project.choice import KELAS_CHOICES
 
 
 # Create your models here.
@@ -12,6 +13,14 @@ class UserProfileInfo(models.Model):
     
     def __str__(self):
         return self.user.username
+
+class DataMahasiswa(models.Model):
+    name = models.CharField(max_length=256)
+    kelas = models.IntegerField(choices=KELAS_CHOICES,default=1)
+
+    def __str__(self):
+        return self.name
+    
 
 class School(models.Model):
     name = models.CharField(max_length=256)

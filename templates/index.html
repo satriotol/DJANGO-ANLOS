@@ -1,18 +1,31 @@
 {% extends 'base.html' %}
 {% block body_block %}
 <div class="container">
-    <h1>Ini Halaman Index</h1>
+    <div class="text-center">
+        <h1>Ini Halaman Index</h1>
+        <h1>Welcome to a list of all the school!</h1>
+    </div>
+    <ol>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Handle</th>
+                    <th scope="col">Aksi</th>
+                </tr>
+            </thead>
+            {% for data in data  %}
+            <tbody>
+                <tr>
+                    <td>{{data.user}}</td>
+                    <td>{{data.portfolio_site}}</td>
+                    <td> <img src="{{data.profile_pic.url}}" alt="img"></td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+    </ol>
 </div>
-
-<h1>Welcome to a list of all the school!</h1>
-<ol>
-    {% for data in data  %}
-    <h2>
-        {{data.user}}
-    </h2>
-    <img src="{{data.profile_pic.url}}" alt="img">
-
-    {% endfor %}
-</ol>
 
 {% endblock body_block %}p
