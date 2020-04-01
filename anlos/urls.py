@@ -21,7 +21,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('',views.IndexView.as_view(),name='list'),
+    path('',views.IndexView.as_view(),name='index'),
     path('<int:pk>/',views.DataMahasiswalDetailView.as_view(),name='detail'),
     path('admin/', admin.site.urls),
     # path('',views.SchoolListView.as_view(),name='list'),
