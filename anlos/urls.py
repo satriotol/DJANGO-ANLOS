@@ -23,6 +23,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('',views.IndexView.as_view(),name='index'),
     path('<int:pk>/',views.DataMahasiswalDetailView.as_view(),name='detail'),
+    path('buat/',views.DataMahasiswaCreateView.as_view(),name='create'),
+    path('delete/<int:pk>/',views.DataMahasiswaDeleteView.as_view(),name="delete"),
     path('admin/', admin.site.urls),
     # path('',views.SchoolListView.as_view(),name='list'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

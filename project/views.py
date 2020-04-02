@@ -6,6 +6,7 @@ from django.views.generic import (View,TemplateView,ListView,DetailView,
 from project import models
 
 class IndexView(ListView):
+    paginate_by = 2
     context_object_name = 'data'
     model = models.DataMahasiswa
     template_name = 'index.html'
@@ -13,6 +14,17 @@ class DataMahasiswalDetailView(DetailView):
     context_object_name = 'datamahasiswa_detail'
     model = models.DataMahasiswa
     template_name = 'detail_mahasiswa.html'
+
+class DataMahasiswaCreateView(CreateView):
+    fields = ('name','kelas','profile_pic')
+    model = models.DataMahasiswa
+    template_name = 'datamahasiswa_form.html'
+
+class DataMahasiswaDeleteView(DeleteView):
+    context_object_name = 'data'
+    model = models.DataMahasiswa
+    template_name = 'datamahasiswa_confirm_delete.html'
+    success_url = reverse_lazy('index')
 
 class SchoolListView(ListView):
     context_object_name = 'schools'
