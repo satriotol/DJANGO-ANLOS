@@ -21,6 +21,12 @@ class DataMahasiswaCreateView(CreateView):
     template_name = 'datamahasiswa_form.html'
     success_url = reverse_lazy('index')
 
+class DataMahasiswaUpdateView(UpdateView):
+    fields = ('name','kelas','profile_pic')
+    model = models.DataMahasiswa
+    template_name = 'datamahasiswa_edit.html'
+    success_url = reverse_lazy('index')
+
 
 class DataMahasiswaDeleteView(DeleteView):
     context_object_name = 'data'
