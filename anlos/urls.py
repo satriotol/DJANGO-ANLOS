@@ -15,17 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from project import views
+from project import views as main_views
 from project.views import DataMahasiswalDetailView
+from login import views as login_views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('',views.IndexView.as_view(),name='index'),
-    path('<int:pk>/',views.DataMahasiswalDetailView.as_view(),name='detail'),
-    path('<int:pk>/update/',views.DataMahasiswaUpdateView.as_view(),name='update'),
-    path('buat/',views.DataMahasiswaCreateView.as_view(),name='create'),
-    path('delete/<int:pk>/',views.DataMahasiswaDeleteView.as_view(),name="delete"),
+    path('',main_views.IndexView.as_view(),name='index'),
+    path('<int:pk>/',main_views.DataMahasiswalDetailView.as_view(),name='detail'),
+    path('<int:pk>/update/',main_views.DataMahasiswaUpdateView.as_view(),name='update'),
+    path('buat/',main_views.DataMahasiswaCreateView.as_view(),name='create'),
+    path('delete/<int:pk>/',main_views.DataMahasiswaDeleteView.as_view(),name="delete"),
     path('admin/', admin.site.urls),
-    # path('',views.SchoolListView.as_view(),name='list'),
+    path('user/', include('login.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
