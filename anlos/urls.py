@@ -29,4 +29,6 @@ urlpatterns = [
     path('delete/<int:pk>/',main_views.DataMahasiswaDeleteView.as_view(),name="delete"),
     path('admin/', admin.site.urls),
     path('user/', include('login.urls')),
+    path('logout/',login_views.user_logout,name='logout'),
+    path('special/',login_views.special,name='special'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
