@@ -53,7 +53,7 @@
     </nav>
     {% if user.is_authenticated %}
     <p>Welcome, {{ user.username }}. Thanks for logging in.
-    nama perushaanmu {{ user.nama_perusahaan }}</p>
+    nama perushaanmu {{ user.email }}</p>
     {% else %}
     <p>Welcome, new user. Please log in.</p>
     {% endif %} 
