@@ -13,12 +13,12 @@
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/all.css' %}">
 
-    <title>Hello, world!</title>
+    <title>Antibolos.com</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-custom bg-custom">
-        <a class="navbar-brand text-center" href="{% url 'index' %}"><img class="w-50" src="{% static "logo.png" %}"
+        <a class="navbar-brand text-center" href="{% url 'index' %}"><img class="w-50" src="{% static "logowhite.png" %}"
                 alt="ini logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,10 +44,35 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'perusahaan:user_login' %}">LOG IN</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="#">LOG IN</a>
+                </li>
                 {% endif %}
             </ul>
         </div>
     </nav>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{% url 'perusahaan:user_login' %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" name="username" placeholder="Masukkan Username"><br>
+                        <input type="password" name="password"  placeholder="Masukkan Username"><br>
+                        <input type="submit" value="Login">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
     {% block body_block %}
     {% endblock body_block %}
 
