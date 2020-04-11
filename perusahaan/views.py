@@ -46,6 +46,7 @@ def register(request):
     return render(request,'login/registration.html',{'user_form':user_form,'profile_form':profile_form,'registered':registered})
 
 def user_login(request):
+    context_object_name = 'data_login'
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -64,4 +65,4 @@ def user_login(request):
             print("Username: {} and Password {}".format(username,password))
             return HttpResponse("invalid login details supplied")
     else:
-        return render(request,'login/login.html',{})
+        return render(request,'login/login.html',{'name' : request.user.username })
