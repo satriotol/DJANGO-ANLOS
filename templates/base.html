@@ -1,4 +1,6 @@
 <!doctype html>
+
+{% load static %}
 <html lang="en">
 
 <head>
@@ -9,33 +11,38 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/all.css' %}">
 
     <title>Hello, world!</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="{% url 'index' %}">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-custom bg-custom">
+        <a class="navbar-brand text-center" href="{% url 'index' %}"><img class="w-50" src="{% static "logo.png" %}"
+                alt="ini logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login:register' %}">Register</a>
+                    <a class="nav-link" href="{% url 'admin:index' %}">ADMIN</a>
                 </li>
                 {% if user.is_authenticated  %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                    <a class="nav-link" href="{% url 'logout' %}">PROFIL PERUSAHAAN</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">LOG OUT</a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'login:user_login' %}">Log In</a>
+                    <a class="nav-link" href="{% url 'login:register' %}">REGISTER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'login:user_login' %}">LOG IN</a>
                 </li>
                 {% endif %}
             </ul>
