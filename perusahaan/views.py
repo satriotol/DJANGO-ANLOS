@@ -21,7 +21,7 @@ def register(request):
     
     if request.method == "POST":
         user_form = UserForm(data=request.POST)
-        profile_form = UserProfileInfoForm(data=request.POST)
+        profile_form = UserPerusahaanInfo(data=request.POST)
 
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
@@ -41,7 +41,7 @@ def register(request):
             print(user_form.errors,profile_form.errors)
     else:
         user_form = UserForm()
-        profile_form = UserProfileInfoForm()
+        profile_form = UserPerusahaanInfo()
 
     return render(request,'login/registration.html',{'user_form':user_form,'profile_form':profile_form,'registered':registered})
 

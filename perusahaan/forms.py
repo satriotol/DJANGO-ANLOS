@@ -9,7 +9,7 @@ class UserForm(forms.ModelForm):
         model = User
         fields = ('username','email','password')
 
-class UserProfileInfoForm(forms.ModelForm):
+class UserPerusahaanInfo(forms.ModelForm):
     class Meta():
-        model = UserProfileInfo
-        fields = ('profile_pic',)
+        model = UserPerusahaanInfo
+        fields = ('nama_lengkap','email','nama_perusahaan','alamat','profile_pic',)

@@ -18,6 +18,7 @@ from django.urls import path,include
 from project import views as main_views
 from project.views import DataMahasiswalDetailView
 from login import views as login_views
+from perusahaan import views as perusahaan_views
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -28,7 +29,10 @@ urlpatterns = [
     path('buat/',main_views.DataMahasiswaCreateView.as_view(),name='create'),
     path('delete/<int:pk>/',main_views.DataMahasiswaDeleteView.as_view(),name="delete"),
     path('admin/', admin.site.urls),
-    path('user/', include('login.urls')),
-    path('logout/',login_views.user_logout,name='logout'),
-    path('special/',login_views.special,name='special'),
+    # path('user/', include('login.urls')),
+    # path('logout/',login_views.user_logout,name='logout'),
+    # path('special/',login_views.special,name='special'),
+    path('user/', include('perusahaan.urls')),
+    path('logout/',perusahaan_views.user_logout,name='logout'),
+    path('special/',perusahaan_views.special,name='special'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
