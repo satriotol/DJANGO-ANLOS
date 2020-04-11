@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'project',
     'login',
+    'perusahaan',
     'django_mysql',
 ]
 
@@ -84,7 +85,7 @@ SILENCED_SYSTEM_CHECKS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'anlos',
+        'NAME': 'anlos-new',
         'USER': 'root',
         'PASSWORD' : '',        
         'OPTIONS': {
