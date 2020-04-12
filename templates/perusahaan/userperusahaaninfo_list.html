@@ -1,13 +1,7 @@
 {% extends 'base.html' %}
 {% block body_block %}
-<h1>{{profilperusahaan.nama_lengkap}}</h1>
-<h1>{{profilperusahaan.email}}</h1>
-{% for profilperusahaan in profilperusahaan %}
-<tbody>
-    <tr class="text-center">
-        <td>{{profilperusahaan.nama_lengkap}}</td>
-        <td>{{profilperusahaan.email}}</td>
-    </tr>
-</tbody>
-{% endfor %}
+{% if user.is_authenticated %}
+    <h1>Nama Lengkap {{user.UserPerusahaanInfo.nama_lengkap}}</h1>
+    <h1>Alamatmu {{user.UserPerusahaanInfo.alamat}}</h1>
+{% endif %}
 {% endblock body_block %}
