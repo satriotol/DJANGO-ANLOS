@@ -22,7 +22,11 @@
                 <tr class="text-center">
                     <td>{{data.name}}</td>
                     <td>{{data.kelas}}</td>
+                    {% if data.profile_pic %}
                     <td> <img src="{{data.profile_pic.url}}" alt="img"></td>
+                    {% else %}
+                    <td>Tidak ada Gambar</td>
+                    {% endif %}
                     <td><button><a href="{% url 'update' pk=data.pk %}">Edit</a></button>
                         <button><a href="{{data.id}}">Detail</a></button>
                         <button><a href="{% url 'delete' pk=data.pk %}">Delete</a></button></td>

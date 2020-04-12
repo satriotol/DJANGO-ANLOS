@@ -3,5 +3,8 @@
 {% if user.is_authenticated %}
     <h1>Nama Lengkap {{user.UserPerusahaanInfo.nama_lengkap}}</h1>
     <h1>Alamatmu {{user.UserPerusahaanInfo.alamat}}</h1>
+    {% if user.UserPerusahaanInfo.profile_pic %}
+    <img src="{{user.UserPerusahaanInfo.profile_pic.url}}" alt="">
+    {% endif %}
 {% endif %}
 {% endblock body_block %}
