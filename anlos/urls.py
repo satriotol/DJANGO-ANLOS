@@ -35,4 +35,5 @@ urlpatterns = [
     path('user/', include('perusahaan.urls')),
     path('logout/',perusahaan_views.user_logout,name='logout'),
     path('special/',perusahaan_views.special,name='special'),
+    path('perusahaan/',perusahaan_views.PerusahaanListView.as_view(),name='profilperusahaan'),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -5,6 +5,10 @@ from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from perusahaan import models
+from django.views.generic import (View,TemplateView,ListView,DetailView,
+                                CreateView,UpdateView,
+                                DeleteView)
 
 # Create your views here.
 
@@ -66,3 +70,8 @@ def user_login(request):
             return HttpResponse("invalid login details supplied")
     else:
         return render(request,'login/login.html',{'name' : request.user.username })
+ 
+class PerusahaanListView(ListView):
+    context_object_name = 'profilperusahaan'
+    model = models.UserPerusahaanInfo
+    template_name = 'perusahaan/userperusahaaninfo_list.html'
