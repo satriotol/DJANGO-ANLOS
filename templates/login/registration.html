@@ -10,7 +10,7 @@
     <h3>Fill out the Form:</h3>
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ user_form.as_p }}
+        {% comment %} {{ user_form.as_p }} {% endcomment %}
         {{ profile_form.as_p }}
         <input type="submit" value="Register">
     </form>

@@ -85,7 +85,7 @@ SILENCED_SYSTEM_CHECKS = [
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'anlos-new',
+        'NAME': 'anlos-coba',
         'USER': 'root',
         'PASSWORD' : '',        
         'OPTIONS': {
