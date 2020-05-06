@@ -2,7 +2,7 @@
 {% load static %}
 <!doctype html>
 {% block body_block %}
-<div class="jumobtron">
+<div class="jumbotron">
     {% if registered %}
     <h1>Thank You For Registering!</h1>
     {% else %}
@@ -10,16 +10,11 @@
         {% csrf_token %}
         {% comment %} {{ user_form.as_p }} {% endcomment %}
         {{ profile_form.as_p }}
-
-        <body onload="initialize()">
-            <div id="map-canvas"></div>
-            <div class="lngLat"><span class="one">Lat</span><span class="two">,Lng</span></div>
-        </body>
-        <textarea id="info"></textarea>
-        <input type="text">
-        <script
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4NCAi9sAjWxAJ89h52Ot37vyoow9CZDI&libraries=drawing&callback=initMap"
-            async defer></script>
+        <div id="tool">
+            <div id="map_canvas" style=" border: 2px solid #3872ac;"></div>
+            <textarea name="" id="info" cols="30" rows="10"></textarea>
+            <div id="info"></div>
+        </div>
         <input type="submit" value="Register">
     </form>
     {% endif %}
