@@ -7,6 +7,7 @@ class UserPerusahaanInfo(models.Model):
     email = models.EmailField(max_length=256,default='')
     profile_pic = models.ImageField(upload_to='profile_pics',blank=True)
     nama_perusahaan = models.CharField(max_length=256,default='')
+    lokasi = models.TextField(max_length=256,default='')
     alamat = models.TextField(default='')    
     def __str__(self):
         return self.user.username

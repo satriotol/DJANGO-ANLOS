@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <title>Antibolos.com</title>
 </head>
@@ -32,7 +33,7 @@
                 </li>
                 {% if user.is_authenticated  %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'logout' %}">PROFIL PERUSAHAAN</a>
+                    <a class="nav-link" href="{% url 'profilperusahaan' %}">PROFIL PERUSAHAAN</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'logout' %}">LOG OUT</a>
@@ -40,6 +41,9 @@
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'perusahaan:register' %}">REGISTER</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'perusahaan:buat' %}">BUAT</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'perusahaan:user_login' %}">LOG IN</a>
@@ -53,12 +57,13 @@
     </nav>
     {% if user.is_authenticated %}
     <p>Welcome, {{ user.username }}. Thanks for logging in.
-    nama perushaanmu {{ user.email }}</p>
+        nama perushaanmu {{ user.email }}</p>
+
     {% else %}
     <p>Welcome, new user. Please log in.</p>
-    {% endif %} 
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-        aria-labelledby="exampleModalLabel" aria-hidden="true">
+    {% endif %}
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -93,6 +98,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
     </script>
+    <script src='https://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=geometry,drawing&amp;ext=.js&amp;key=AIzaSyC4NCAi9sAjWxAJ89h52Ot37vyoow9CZDI'></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
 </body>
 
 </html>
