@@ -8,11 +8,20 @@
     {% else %}
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {% comment %} {{ user_form.as_p }} {% endcomment %}
-        {{ profile_form.as_p }}
+        {{ user_form.as_p }}
+        <p><label for="id_nama_lengkap">Nama lengkap:</label> <input type="text" name="nama_lengkap" maxlength="256"
+                required="" id="id_nama_lengkap"></p>
+        <p><label for="id_email">Email:</label> <input type="email" name="email" maxlength="256" required=""
+                id="id_email"></p>
+        <p><label for="id_nama_perusahaan">Nama perusahaan:</label> <input type="text" name="nama_perusahaan"
+                maxlength="256" required="" id="id_nama_perusahaan"></p>
+        <p><label for="id_alamat">Alamat:</label> <textarea name="alamat" cols="40" rows="10" required=""
+                id="id_alamat"></textarea></p>
+        <p><label for="id_profile_pic">Profile pic:</label> <input type="file" name="profile_pic" accept="image/*"
+                id="id_profile_pic"></p>
         <div id="tool">
             <div id="map_canvas" style=" border: 2px solid #3872ac;"></div>
-            <textarea name="" id="info" cols="30" rows="10"></textarea>
+            <textarea name="lokasi" id="info" cols="30" rows="10"></textarea>
             <div id="info"></div>
         </div>
         <input type="submit" value="Register">

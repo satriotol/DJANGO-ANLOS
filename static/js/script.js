@@ -70,7 +70,7 @@ function initializeDrawer() {
     google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
         document.getElementById('info').innerHTML;
         for (var i = 0; i < polygon.getPath().getLength(); i++) {
-            document.getElementById('info').innerHTML += "[" + polygon.getPath().getAt(i).toUrlValue(6) + "],";
+            document.getElementById('info').innerHTML += "[" + polygon.getPath().getAt(i).toUrlValue(6) + "]";
         }
         polygonArray.push(polygon);
     });
