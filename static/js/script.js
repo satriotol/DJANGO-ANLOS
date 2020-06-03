@@ -69,8 +69,20 @@ function initializeDrawer() {
 
     google.maps.event.addListener(drawingManager, 'polygoncomplete', function (polygon) {
         document.getElementById('info').innerHTML;
+        let vert = polygon.getPath();
+        let pos = {
+            latitude: [
+
+            ],
+            longitude: [
+
+            ]
+        }
         for (var i = 0; i < polygon.getPath().getLength(); i++) {
-            document.getElementById('info').innerHTML += "[" + polygon.getPath().getAt(i).toUrlValue(6) + "]";
+            let xy = vert.getAt(i)
+            pos.latitude.push(xy.lat());
+            pos.longitude.push(xy.lng());
+            document.getElementById('info').innerHTML += JSON.stringify(pos);
         }
         polygonArray.push(polygon);
     });
