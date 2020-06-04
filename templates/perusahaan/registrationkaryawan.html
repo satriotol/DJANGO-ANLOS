@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+<!doctype html>
+{% block body_block %}
+<div class="jumbotron">
+        {% if registered %}
+        <h1>Thank You For Registering!</h1>
+        {% else %}
+        <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {% comment %} {{ user_form.as_p }} {% endcomment %}
+                {% if user.is_authenticated %}
+                <p>Welcome, {{ user.username }}. Thanks for logging in. {{user.UserPerusahaanInfo.nama_perusahaan}} <br>
+                <input type="text" value="{{user.UserPerusahaanInfo.id}}">
+                {% endif %}
+                {{ profile_form.as_p }}
+                <input type="submit" value="Register">
+        </form>
+        {% endif %}
+</div>
+{% endblock body_block %}

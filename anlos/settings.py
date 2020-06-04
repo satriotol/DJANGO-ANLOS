@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'project',
     'login',
     'perusahaan',
+    'karyawan',
     'django_mysql',
 ]
 
