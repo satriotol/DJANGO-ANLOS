@@ -10,10 +10,8 @@ class UserPerusahaanInfo(models.Model):
     lokasi = models.TextField(max_length=256,default='')
     alamat = models.TextField(default='')    
     def __str__(self):
-        return self.user.username
+        return self.nama_perusahaan
 
-# class Perusahaan(models.Model):
-#     nama_perusahaan = 
 class UserKaryawanInfo(models.Model):
     # nama_perusahaan = models.OneToOneField(UserPerusahaanInfo,related_name="UserKaryawanInfo",on_delete=models.CASCADE)
     nama_perusahaan = models.OneToOneField(
