@@ -13,7 +13,6 @@ class UserPerusahaanInfo(models.Model):
         return self.nama_perusahaan
 
 class UserKaryawanInfo(models.Model):
-    # nama_perusahaan = models.OneToOneField(UserPerusahaanInfo,related_name="UserKaryawanInfo",on_delete=models.CASCADE)
     nama_perusahaan = models.OneToOneField(
         UserPerusahaanInfo,
         on_delete=models.CASCADE,
