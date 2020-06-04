@@ -1,7 +1,7 @@
 from django.contrib import admin
 from project.models import School,Student,UserProfileInfo,DataMahasiswa,UserProfileInfo
-from perusahaan.models import UserPerusahaanInfo
-from karyawan.models import UserKaryawanInfo
+from perusahaan.models import UserPerusahaanInfo,UserKaryawanInfo
+
 
 # Register your models here.
 admin.site.register(School)
