@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from perusahaan.models import UserPerusahaanInfo,UserKaryawanInfo
+from perusahaan.models import UserPerusahaanInfo,UserKaryawanInfo2
 
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
@@ -14,8 +14,8 @@ class UserPerusahaanInfo(forms.ModelForm):
         model = UserPerusahaanInfo
         fields = ('nama_lengkap','email','nama_perusahaan','alamat','lokasi','profile_pic',)
 
-class UserKaryawanInfo(forms.ModelForm):
+class UserKaryawanInfo2(forms.ModelForm):
     
     class Meta:
-        model = UserKaryawanInfo
-        fields = ("nama_lengkap","email","alamat","profile_pic",)
+        model = UserKaryawanInfo2
+        fields = ("nama_perusahaan","nama_lengkap","email","alamat","profile_pic",)

@@ -12,15 +12,20 @@ class UserPerusahaanInfo(models.Model):
     def __str__(self):
         return self.nama_perusahaan
 
-class UserKaryawanInfo(models.Model):
-    nama_perusahaan = models.OneToOneField(
-        UserPerusahaanInfo,
-        on_delete=models.CASCADE,
-        primary_key=True,
-    )
+# class UserKaryawanInfo1(models.Model):
+#     nama_perusahaan = models.OneToOneField(UserPerusahaanInfo,on_delete=models.CASCADE,)
+#     nama_lengkap = models.CharField(max_length=256,default='')
+#     email = models.EmailField(max_length=256,default='')
+#     alamat = models.TextField(default='')    
+#     profile_pic = models.ImageField(upload_to='profile_pics',blank=True)
+#     def __str__(self):
+#         return "%s the restaurant" % self.nama_perusahaan
+
+class UserKaryawanInfo2(models.Model):
+    nama_perusahaan = models.CharField(max_length=256,default='')
     nama_lengkap = models.CharField(max_length=256,default='')
     email = models.EmailField(max_length=256,default='')
     alamat = models.TextField(default='')    
     profile_pic = models.ImageField(upload_to='profile_pics',blank=True)
     def __str__(self):
-        return "%s the restaurant" % self.nama_perusahaan
+        return self.nama_lengkap

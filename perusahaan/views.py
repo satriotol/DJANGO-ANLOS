@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from perusahaan.forms import UserForm,UserPerusahaanInfo,UserKaryawanInfo
+from perusahaan.forms import UserForm,UserPerusahaanInfo,UserKaryawanInfo2
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
@@ -82,7 +82,7 @@ def registerkaryawan(request):
     
     if request.method == "POST":
         user_form = UserForm(data=request.POST)
-        profile_form = UserKaryawanInfo(data=request.POST)
+        profile_form = UserKaryawanInfo2(data=request.POST)
 
         if user_form.is_valid() and profile_form.is_valid():
             user = user_form.save()
@@ -102,7 +102,7 @@ def registerkaryawan(request):
             print(user_form.errors,profile_form.errors)
     else:
         user_form = UserForm()
-        profile_form = UserKaryawanInfo()
+        profile_form = UserKaryawanInfo2()
 
     return render(request,'perusahaan/registrationkaryawan.html',{'user_form':user_form,'profile_form':profile_form,'registered':registered})
 

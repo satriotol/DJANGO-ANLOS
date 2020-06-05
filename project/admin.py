@@ -1,6 +1,6 @@
 from django.contrib import admin
 from project.models import School,Student,UserProfileInfo,DataMahasiswa,UserProfileInfo
-from perusahaan.models import UserPerusahaanInfo,UserKaryawanInfo
+from perusahaan.models import UserPerusahaanInfo,UserKaryawanInfo2
 
 
 # Register your models here.
@@ -9,6 +9,6 @@ admin.site.register(DataMahasiswa)
 admin.site.register(Student)
 admin.site.register(UserProfileInfo)
 admin.site.register(UserPerusahaanInfo)
-admin.site.register(UserKaryawanInfo)
+admin.site.register(UserKaryawanInfo2)
 
 
